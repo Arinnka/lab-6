@@ -22,9 +22,9 @@ import java.util.logging.Logger;
 public class JavaApplication3 {
 
    public static final String gammastring = "0123456789";
-public static final String alb = "abcdefghijklmnopqrstuvwxyz";
+public static final String alb = "АБВГДЕЖЗИЙКЛМНОПРСТУФХШЩЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя., :-";
     public static void main(String[] args) throws UnsupportedEncodingException, IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in,"Cp1251"));
         String[][] alphabet = new String[2][alb.length()];
         int count = 0;
         for (char c : alb.toCharArray()) {
@@ -37,10 +37,10 @@ public static final String alb = "abcdefghijklmnopqrstuvwxyz";
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Enter message");
+        System.out.println("Введите сообшение");
            String messagetmp = reader.readLine();
             while(!(chstr(messagetmp))){
-            System.out.println("Enter string may contain only lowercase letters");
+            System.out.println("используйте буквы только русского алфавита");
             messagetmp = reader.readLine();
         
     }
@@ -57,7 +57,7 @@ public static final String alb = "abcdefghijklmnopqrstuvwxyz";
 
         String[][] gamma = new String[2][messagetmp.length()];
 
-        System.out.println("Enter gamma size");
+        System.out.println("Введите размер ключа");
         int gammaSize = in.nextInt();
 
         if (gammaSize > alb.length()) {
@@ -65,7 +65,7 @@ public static final String alb = "abcdefghijklmnopqrstuvwxyz";
             System.out.println("Decreased gamma size to " + alb.length());
         }
         count = 0;
-        System.out.println("Enter gamma numbers");
+        System.out.println("введите знаки гаммы");
         String keytmp;
         while (gammaSize != 0) {
             try {
